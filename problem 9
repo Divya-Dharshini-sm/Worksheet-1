@@ -1,0 +1,27 @@
+#include <iostream>
+#include <fstream>
+#include <iomanip>   
+using namespace std;
+int main() {
+    double assessedValue, taxableAmount, taxRate = 1.05, propertyTax;
+    cout << "Enter the assessed value of the property: ";
+    cin >> assessedValue;
+    taxableAmount = assessedValue * 0.92;  
+    propertyTax = (taxableAmount / 100.0) * taxRate;
+    ofstream outFile("property_tax.txt");
+    if (!outFile) {
+        cout << "Error opening file!" << endl;
+        return 1;
+    }
+    outFile << left << setw(30) << "Assessed Value:" 
+            << right << setw(10) << fixed << setprecision(2) << assessedValue << endl;
+    outFile << left << setw(30) << "Taxable Amount:" 
+            << right << setw(10) << fixed << setprecision(2) << taxableAmount << endl;
+    outFile << left << setw(30) << "Tax Rate for each Rs. 100.00" 
+            << right << setw(10) << fixed << setprecision(2) << taxRate << endl;
+    outFile << left << setw(30) << "Property Tax" 
+            << right << setw(10) << fixed << setprecision(2) << propertyTax << endl;
+    outFile.close();
+    cout << "Property tax details stored in file 'property_tax.txt'" << endl;
+    return 0;
+}
