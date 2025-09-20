@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int units;
+    double cost;
+    cout << "Enter the water units consumed: ";
+    cin >> units;
+
+    if (units < 100) {
+        cost = units * 1.0;  
+    }
+    else if (units <= 500) {
+        cost = units * 1.5;  
+    }
+    else {
+        cost = units * 3.0;  
+    }
+    cout << "Water Tax = Rs." << cost << endl;
+    return 0;
+}
