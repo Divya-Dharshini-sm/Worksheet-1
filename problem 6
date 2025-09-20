@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int initial, final, units;
+    double bill = 0.0, fixedCharge = 0.0;
+    cout << "Enter initial meter reading: ";
+    cin >> initial;
+    cout << "Enter final meter reading: ";
+    cin >> final;
+    units = final - initial;
+
+    cout << "\nUnits Consumed: " << units << endl;
+    if (units <= 100) {
+        fixedCharge = 0;
+        bill = 0;
+    }
+    else if (units <= 200) {
+        fixedCharge = 20;
+        bill = (units - 100) * 2.0;
+    }
+    else if (units <= 500) {
+        fixedCharge = 30;
+        bill = (100 * 2.0) + (units - 200) * 3.0;
+    }
+    else {
+        fixedCharge = 50;
+        bill = (100 * 3.5) + (300 * 4.6) + (units - 500) * 6.6;
+    }
+    double total = bill + fixedCharge;
+    cout << "Fixed Charge: Rs." << fixedCharge << endl;
+    cout << "Energy Charge: Rs." << bill << endl;
+    cout << "Total Electricity Bill = Rs." << total << endl;
+    return 0;
+}
