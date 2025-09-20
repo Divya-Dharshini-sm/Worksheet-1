@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int population;
+    double men, women, literate, literateMen, literateWomen;
+    double illiterateMen, illiterateWomen;
+    cout << "Enter the total population of the town: ";
+    cin >> population;
+    men = 0.52 * population;
+    women = 0.48 * population;
+    literate = 0.48 * population;
+    literateMen = 0.35 * population;
+    literateWomen = literate - literateMen;
+    illiterateMen = men - literateMen;
+    illiterateWomen = women - literateWomen;
+    cout << "\nTotal women: " << women << endl;
+    cout << "Illiterate men: " << illiterateMen << endl;
+    cout << "Illiterate women: " << illiterateWomen << endl;
+    return 0;
+}
